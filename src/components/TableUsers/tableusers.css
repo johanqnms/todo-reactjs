@@ -1,0 +1,27 @@
+.table-container {
+    padding: 50px 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.search {
+    width: 300px;
+    border-radius: 15px;
+    border-style: solid;
+    padding: 10px;
+    border-color: rgb(39, 155, 155);
+}
+
+.search-container {
+    background-color: rgb(224, 224, 224);
+    padding: 20px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap:20px
+}
