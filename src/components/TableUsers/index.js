@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import "./tableusers.css";
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import { TailSpin } from "react-loader-spinner";
+import { Link } from "react-router-dom";
 
 export const TableUsers = () => {
   const API_URL = "https://jsonplaceholder.typicode.com/todos/";
@@ -36,10 +37,12 @@ export const TableUsers = () => {
         element.userId
           .toString()
           .toLowerCase()
-          .includes(inputUserText.toLowerCase()) || element.id
+          .includes(inputUserText.toLowerCase()) ||
+        element.id
           .toString()
           .toLowerCase()
-          .includes(inputUserText.toLowerCase())|| element.title
+          .includes(inputUserText.toLowerCase()) ||
+        element.title
           .toString()
           .toLowerCase()
           .includes(inputUserText.toLowerCase())
@@ -52,11 +55,10 @@ export const TableUsers = () => {
 
   return (
     <div className="table-container">
-      <h1>Prueba Técnica Frontend React JS </h1>
-      <h2>To Do List </h2>
-      <h4>
-        Api Rest: <code>https://jsonplaceholder.typicode.com/todos/</code>{" "}
-      </h4>
+      <Link to="/">
+        <button>Regresar</button>
+      </Link>
+
       {isLoading ? (
         <TailSpin height="100" width="100" color="grey" ariaLabel="loading" />
       ) : (
