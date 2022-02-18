@@ -1,17 +1,19 @@
-import { useEffect, useState } from "react";
+import axios from "axios";
+import { useState } from "react";
 
 export const GetData = () => {
   const API_URL = "https://jsonplaceholder.typicode.com/todos/";
-  const [isLoading, setIsLoading] = useState(true);
   const [users, setUsers] = useState([]);
-  useEffect(() => {
-    fetch(API_URL)
-      .then((response) => response.json())
-      .then((data) => {
-        setUsers(data);
-        setIsLoading(false);
-      });
-  }, []);
+  const getApiData = async () => {
+    await axios
+      .get(API_URL)
+      .then((response) => {
+        console.log(response.data);
+        setUsers(response.data);
+      })
+      .catch((error) => console.log(error));
+  };
 
-  return (isLoading) ? [] : users;      
+  getApiData();
+  return users;      
 };

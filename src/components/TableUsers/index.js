@@ -14,8 +14,6 @@ export const TableUsers = () => {
     await axios
       .get(API_URL)
       .then((response) => {
-        //   console.log(response);
-        console.log(response.data);
         setUsers(response.data);
         setUsersTable(response.data);
         setIsLoading(false);
@@ -28,7 +26,6 @@ export const TableUsers = () => {
   }, []);
 
   const handleSearch = (e) => {
-    console.log(`Busqueda: ${e.target.value}`);
     setInputSearch(e.target.value);
     filterSearch(e.target.value);
   };
@@ -36,7 +33,13 @@ export const TableUsers = () => {
   const filterSearch = (inputUserText) => {
     let results = usersTable.filter((element) => {
       if (
-        element.title
+        element.userId
+          .toString()
+          .toLowerCase()
+          .includes(inputUserText.toLowerCase()) || element.id
+          .toString()
+          .toLowerCase()
+          .includes(inputUserText.toLowerCase())|| element.title
           .toString()
           .toLowerCase()
           .includes(inputUserText.toLowerCase())
@@ -47,7 +50,6 @@ export const TableUsers = () => {
     setUsers(results);
   };
 
-  console.log("Users", users);
   return (
     <div className="table-container">
       <h1>Prueba Técnica Frontend React JS </h1>

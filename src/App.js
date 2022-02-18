@@ -1,12 +1,12 @@
 import './App.css';
-import { MaterialDataTable } from './components/MaterialDataTable';
+import { ReactBootstrapTableNext } from './components/ReactBootstrapTable';
 import { TableUsers } from './components/TableUsers';
 
 function App() {
   return (
     <div className="App">
-      {/* <MaterialDataTable/> */}
       <TableUsers/>
+      <ReactBootstrapTableNext/>
     </div>
   );
 }
